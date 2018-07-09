@@ -1,36 +1,54 @@
 --create tables in default postgres database
 
---to do: add constraints and foreign keys
+CREATE TABLE customers (
+	customer_name varchar NOT NULL,
+	CONSTRAINT customers_pk PRIMARY KEY (customer_name),
+	CONSTRAINT customers_un UNIQUE (customer_name)
+)
+WITH (
+	OIDS=FALSE
+) ;
 
-CREATE TABLE public.customers (
-	customer_name varchar NOT NULL
-);
-
-CREATE TABLE public.company (
+CREATE TABLE company (
 	company_unique_id varchar NOT NULL,
-	company varchar NOT null,
-	reporting_currency varchar NOT null, 
-	company_sub_group varchar NOT null, 
-	company_group varchar NOT null,
-	company_top_group varchar NOT null, 
-	company_holding varchar NOT null,
-	customer_name varchar not null
-);
+	company varchar NOT NULL,
+	reporting_currency varchar NOT NULL,
+	company_sub_group varchar NOT NULL,
+	company_group varchar NOT NULL,
+	company_top_group varchar NOT NULL,
+	company_holding varchar NOT NULL,
+	customer_name varchar NOT NULL,
+	CONSTRAINT company_pk PRIMARY KEY (company_unique_id),
+	CONSTRAINT company_un UNIQUE (company_unique_id)
+)
+WITH (
+	OIDS=FALSE
+) ;
 
-CREATE TABLE public.bank_accounts (
+CREATE TABLE bank_accounts (
 	company_unique_id varchar NOT NULL,
 	bank_account varchar NOT NULL,
 	bank_account_number varchar NOT NULL,
 	main_currency varchar NOT NULL,
 	bank_short_name varchar NOT NULL,
-	bank_name varchar NOT null
-);
+	bank_name varchar NOT NULL,
+	CONSTRAINT bank_accounts_pk PRIMARY KEY (bank_account),
+	CONSTRAINT bank_accounts_un UNIQUE (bank_account)
+)
+WITH (
+	OIDS=FALSE
+) ;
 
 --Users table to be used by the login script
 
-CREATE TABLE public.users (
-  userId serial primary key,
-  userName varchar NOT NULL,
-  userEmail varchar NOT null unique,
-  userPass varchar NOT NULL
-);
+CREATE TABLE users (
+	userid serial NOT NULL,
+	username varchar NOT NULL,
+	useremail varchar NOT NULL,
+	userpass varchar NOT NULL,
+	CONSTRAINT users_pkey PRIMARY KEY (userid),
+	CONSTRAINT users_useremail_key UNIQUE (useremail)
+)
+WITH (
+	OIDS=FALSE
+) ;
