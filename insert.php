@@ -34,16 +34,25 @@ elseif ($_POST[insert_table_name]=='company') {
 $sql="INSERT INTO public.company
 (company_unique_id, 
 company,
-customer_name)
+customer_name,
+reporting_currency,
+company_sub_group,
+company_group,
+company_top_group,
+company_holding
+)
 VALUES
 ('$_POST[company_unique_id]',
 '$_POST[company]',
 '$_POST[insert_customer_name]'
+'$_POST[reporting_currency]'
+'$_POST[company_sub_group]'
+'$_POST[company_group]'
+'$_POST[company_top_group]'
+'$_POST[company_holding]'
 );";
 
 }
-
-
 
 else {
 

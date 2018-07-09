@@ -1,7 +1,6 @@
 --create tables in default postgres database
 
 --to do: add constraints and foreign keys
---create tables in default postgres database
 
 CREATE TABLE public.customers (
 	customer_name varchar NOT NULL
@@ -14,7 +13,8 @@ CREATE TABLE public.company (
 	company_sub_group varchar NOT null, 
 	company_group varchar NOT null,
 	company_top_group varchar NOT null, 
-	company_holding varchar NOT null
+	company_holding varchar NOT null,
+	customer_name varchar not null
 );
 
 CREATE TABLE public.bank_accounts (
@@ -23,7 +23,7 @@ CREATE TABLE public.bank_accounts (
 	bank_account_number varchar NOT NULL,
 	main_currency varchar NOT NULL,
 	bank_short_name varchar NOT NULL,
-	bank_name varchar NOT NULL
+	bank_name varchar NOT null
 );
 
 --Users table to be used by the login script
