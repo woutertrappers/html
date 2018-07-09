@@ -32,6 +32,8 @@ CREATE TABLE bank_accounts (
 	main_currency varchar NOT NULL,
 	bank_short_name varchar NOT NULL,
 	bank_name varchar NOT NULL,
+	account_group integer,
+	account_sub_group integer,
 	CONSTRAINT bank_accounts_pk PRIMARY KEY (bank_account),
 	CONSTRAINT bank_accounts_un UNIQUE (bank_account)
 )
@@ -52,3 +54,32 @@ CREATE TABLE users (
 WITH (
 	OIDS=FALSE
 ) ;
+
+--Add integration with R and Python - these languages R-Cran, Python, plR and plPython are prerequisites
+
+CREATE EXTENSION plr;
+
+CREATE LANGUAGE plpythonu;
+
+CREATE OR REPLACE FUNCTION r_max (integer, integer) RETURNS integer AS '
+    if (arg1 > arg2)
+       return(arg1)
+    else
+       return(arg2)
+' LANGUAGE 'plr' STRICT;
+
+CREATE FUNCTION pymax (a integer, b integer)
+  RETURNS integer
+AS $$
+  if a > b:
+    return a
+  return b
+$$ LANGUAGE plpythonu;
+
+CREATE VIEW public."max account group" AS
+select 
+account_group
+,account_sub_group
+,r_max(account_group, account_sub_group) as "max account group R"
+,pymax(account_group, account_sub_group) as "max account group python"
+from public.bank_accounts;
