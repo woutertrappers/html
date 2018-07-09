@@ -17,7 +17,8 @@ $sql0="SELECT
 
 if ($table_name=='company') {
 
-$sql1="SELECT include, company, database_name, company_unique_id, company_id_found, reporting_currency, company_map1, company_map2, ar_account, ap_account, bank_balance_account, bank_balance_account_except, petty_cash_balance_account, petty_cash_balance_account_except, tolerance_days, cash_flow_group_1, cash_flow_group_2, chart_of_accounts_key, company_unique_id2, company_sub_group, company_group, company_top_group, company_holding
+$sql1="SELECT company, company_unique_id, reporting_currency, 
+company_sub_group, company_group, company_top_group, company_holding
 FROM public.company where customer_name='$customer_name';";
 
 }
