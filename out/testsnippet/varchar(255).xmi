@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><XMI xmlns:UML="href://org.omg/UML/1.3" xmi.version="1.1">
+<XMI.header>
+<XMI.metamodel xmi.name="UML" xmi.version="1.3"/>
+</XMI.header>
+<XMI.content>
+<UML:Model name="PlantUML" xmi.id="model1">
+<UML:Namespace.ownedElement>
+<UML:Class name="user" namespace="model1" xmi.id="cl0002">
+<UML:ModelElement.stereotype/>
+<UML:Classifier.feature>
+<UML:Attribute name="Users table example." xmi.id="att9"/>
+<UML:Attribute name="==" xmi.id="att10"/>
+<UML:Attribute name="id" visibility="protected" xmi.id="att11"/>
+<UML:Operation name="login : varchar(16)" visibility="public" xmi.id="att12"/>
+<UML:Operation name="mail : varchar(64)" visibility="public" xmi.id="att13"/>
+<UML:Operation name="docsRef : int(10) -- referenced docs for a user" xmi.id="att14"/>
+<UML:Operation name="created : int(11)" xmi.id="att15"/>
+<UML:Operation name="sesid : int(11)" xmi.id="att16"/>
+</UML:Classifier.feature>
+</UML:Class>
+<UML:Class name="docs" namespace="model1" xmi.id="cl0003">
+<UML:ModelElement.stereotype/>
+<UML:Classifier.feature>
+<UML:Attribute name="Documents storage example." xmi.id="att17"/>
+<UML:Attribute name="==" xmi.id="att18"/>
+<UML:Operation name="id : int(10)" visibility="protected" xmi.id="att19"/>
+<UML:Operation name="fid : int(10) -- link to a file" visibility="protected" xmi.id="att20"/>
+<UML:Operation name="aunthorid : int(10)" visibility="public" xmi.id="att21"/>
+<UML:Operation name="created : int(11)" visibility="public" xmi.id="att22"/>
+</UML:Classifier.feature>
+</UML:Class>
+<UML:Class name="session" namespace="model1" xmi.id="cl0005">
+<UML:ModelElement.stereotype/>
+<UML:Classifier.feature>
+<UML:Attribute name="Sessions table example." xmi.id="att23"/>
+<UML:Attribute name="==" xmi.id="att24"/>
+<UML:Attribute name="id" visibility="protected" xmi.id="att25"/>
+<UML:Attribute name="data : longtext -- serialized session data" xmi.id="att26"/>
+<UML:Operation name="uid : int(10) unsigned" visibility="public" xmi.id="att27"/>
+<UML:Operation name="remoteip : int(10) unsigned" xmi.id="att28"/>
+<UML:Operation name="useragent : varchar(255)" xmi.id="att29"/>
+<UML:Operation name="lastseen : int(11)" visibility="public" xmi.id="att30"/>
+</UML:Classifier.feature>
+</UML:Class>
+<UML:Class name="files" namespace="model1" xmi.id="cl0007">
+<UML:ModelElement.stereotype/>
+<UML:Classifier.feature>
+<UML:Attribute name="File storage example." xmi.id="att31"/>
+<UML:Attribute name="==" xmi.id="att32"/>
+<UML:Attribute name="id" visibility="protected" xmi.id="att33"/>
+<UML:Operation name="docId : int(10)" visibility="public" xmi.id="att34"/>
+<UML:Operation name="title : varchar(255)" xmi.id="att35"/>
+<UML:Operation name="path : varchar(255)" xmi.id="att36"/>
+<UML:Operation name="hash : int(32) unsigned" xmi.id="att37"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:Namespace.ownedElement>
+</UML:Model>
+</XMI.content>
+</XMI>
